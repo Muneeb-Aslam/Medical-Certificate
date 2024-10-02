@@ -1,6 +1,6 @@
 function App() {
   return (
-    <div>
+    <div className="text-red-950 text-4xl">
       React
     </div>
   )
