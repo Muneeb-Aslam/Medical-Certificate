@@ -4,12 +4,17 @@ export default {
   theme: {
     extend: {
       backgroundColor: {
+        "btn-bg": "#005760",
         primary: "#FAF8F3",
         white: "#FFFFFF",
       },
       colors: {
         green: "#005760",
+        offwhite: "#FAF8F3",
       },
+      fontFamily: {
+        'poppins': ['Poppins'],
+     }
     },
   },
   plugins: [],
