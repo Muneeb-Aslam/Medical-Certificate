@@ -2,8 +2,10 @@ import gym from "../../assets/icons/gym.png";
 import sick from "../../assets/icons/sick.png";
 import college from "../../assets/icons/college.png";
 import Button from "../ui/button";
+import { useNavigate } from "react-router-dom";
 
 const SickTypesSection = () => {
+  const navigate = useNavigate();
   return (
     <section className="bg-white w-full h-max flex flex-col justify-start items-center gap-20 py-32">
       <h3 className="text-2xl sm:text-4xl md:text-6xl font-bold text-green text-center">
@@ -31,7 +33,9 @@ const SickTypesSection = () => {
           </h3>
         </div>
       </div>
-      <Button>GET SICK LEAVE CERTIFICATE</Button>
+      <Button onClick={() => navigate("/certificate/form")}>
+        GET SICK LEAVE CERTIFICATE
+      </Button>
     </section>
   );
 };

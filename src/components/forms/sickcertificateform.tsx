@@ -30,13 +30,13 @@ const SickCertificateForm = () => {
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
-      className="w-full flex flex-col justify-start items-start gap-12 font-poppins pb-20"
+      className="w-full flex flex-col justify-start items-start gap-6 font-poppins pb-20 pr-4 md:px-4"
     >
       <FormDiv>
         <FormLabel className="text-black text-lg font-normal break-words leading-8">
           {termsAndConditions}
         </FormLabel>
-        <div className="flex justify-start items-center gap-2">
+        <div className="flex justify-start items-center gap-2 flex-wrap">
           <input type="checkbox" className="w-[20px] h-[20px]" />
           <FormLabel aria-required={true}>
             I accept all the terms and conditions, refund & cancellation policy,
@@ -51,7 +51,7 @@ const SickCertificateForm = () => {
         <FormError error={errors.phoneNumber} />
       </FormDiv>
 
-      <div className="w-full flex justify-start items-center gap-12">
+      <div className="w-full flex justify-start items-center gap-12 flex-wrap">
         <FormDiv>
           <FormLabel aria-required={true}>Frist Name</FormLabel>
           <Input {...register("firstName")} placeholder="First Name" />
@@ -103,7 +103,7 @@ const SickCertificateForm = () => {
         <FormError error={errors.FullAddress?.address} />
       </FormDiv>
 
-      <div className="w-full flex justify-start items-center gap-12">
+      <div className="w-full flex justify-start items-center gap-12 flex-wrap">
         <FormDiv>
           <FormLabel aria-required={true}>City</FormLabel>
           <Input {...register("FullAddress.city")} placeholder="City" />
@@ -117,7 +117,7 @@ const SickCertificateForm = () => {
         </FormDiv>
       </div>
 
-      <div className="w-full flex justify-start items-center gap-12">
+      <div className="w-full flex justify-start items-center gap-12 flex-wrap">
         <FormDiv>
           <FormLabel aria-required={true}>ZipCode</FormLabel>
           <Input {...register("FullAddress.zipCode")} placeholder="Zip Code" />
@@ -132,11 +132,14 @@ const SickCertificateForm = () => {
       </div>
 
       <FormDiv>
-        <FormLabel aria-required={true}>Age</FormLabel>
-        <h3 className="text-green text-xs">
+        <FormLabel className="text-green text-xs break-words font-semibold -mb-4">
           In case of a minor i.e. less than 18 years the Doctor consultation
           will be with the guardian/caretaker
-        </h3>
+        </FormLabel>
+      </FormDiv>
+
+      <FormDiv>
+        <FormLabel aria-required={true}>Age</FormLabel>
         <Input {...register("age")} placeholder="Age" />
         <FormError error={errors.age} />
       </FormDiv>

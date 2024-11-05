@@ -43,7 +43,7 @@ const SickCertificateLandingPage = () => {
           Get a Medical Certificate <br />
           For Leave On Priority
         </h3>
-        <p className="text-center text-black text-2xl break-words leading-10">
+        <p className="text-center text-black text-xl md:text-2xl break-words leading-10">
           Experiencing unexpected illness? Get a verified sick leave certificate
           quickly and conveniently from the comfort of your home. Consult with a
           registered doctor online and receive your medical certificate in
@@ -58,7 +58,7 @@ const SickCertificateLandingPage = () => {
         <h3 className="text-2xl sm:text-4xl md:text-6xl font-bold text-green text-center">
           When Do You Need A<br /> Sick Leave Certificate?
         </h3>
-        <p className="text-center break-words text-black text-2xl leading-10">
+        <p className="text-center break-words text-black text-xl md:text-2xl leading-10">
           Feeling under the weather? Prioritize your health by staying home.
           Rest is essential for recovery, especially if you have a contagious
           illness. While taking sick leave can be stressful, especially when

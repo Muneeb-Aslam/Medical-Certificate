@@ -42,7 +42,7 @@ const FitnessCertificateLandingPage = () => {
         <h3 className="text-2xl sm:text-4xl md:text-6xl font-bold text-green text-center">
           Guide to Getting a Fitness Medical Certificate
         </h3>
-        <p className="text-center text-black text-2xl break-words leading-10">
+        <p className="text-center text-black text-xl md:text-2xl break-words leading-10">
           Are you looking for a fitness medical certificate online? Getting a
           fitness certificate doesn't have to be a tedious task and can easily
           be done from the comfort of your home. If there is no specific format

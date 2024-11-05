@@ -32,8 +32,8 @@ const Home = () => {
 
       <TrustUs />
 
-      <section className="bg-white w-full h-max flex flex-col justify-start items-center gap-20 py-32">
-        <h3 className="text-2xl sm:text-4xl md:text-6xl font-bold text-green text-center">
+      <section className="bg-white w-full h-max flex flex-col justify-start items-center gap-20 py-32 px-12">
+        <h3 className="text-3xl sm:text-4xl md:text-6xl font-bold text-green text-center">
           Online Medical Certificates that work for you
         </h3>
         <div className="w-full flex justify-center items-center flex-wrap gap-12">

@@ -2,8 +2,10 @@ import fly from "../../assets/icons/fly.png";
 import cruise from "../../assets/icons/cruise.png";
 import medical from "../../assets/icons/medical.png";
 import Button from "../ui/button";
+import { useNavigate } from "react-router-dom";
 
 const FitnessTypesSection = () => {
+  const navigate = useNavigate();
   return (
     <section className="bg-white w-full h-max flex flex-col justify-start items-center gap-20 py-32">
       <h3 className="text-2xl sm:text-4xl md:text-6xl font-bold text-green text-center">
@@ -31,7 +33,9 @@ const FitnessTypesSection = () => {
           </h3>
         </div>
       </div>
-      <Button>GET FITNESS CERTIFICATE</Button>
+      <Button onClick={() => navigate("/certificate/form")}>
+        GET FITNESS CERTIFICATE
+      </Button>
     </section>
   );
 };

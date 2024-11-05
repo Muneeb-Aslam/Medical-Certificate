@@ -6,12 +6,12 @@ const SickCertificatePage = () => {
   return (
     <div className="w-full min-h-screen flex flex-col font-poppins">
       <NavBar />
-      <header className="py-12 w-full flex flex-col">
+      <header className="py-12 w-full flex flex-col px-8 md:px-12">
         <h4 className="text-center text-3xl font-bold text-green">
           Get Your Medical Certificate Now
         </h4>
       </header>
-      <section className="p-8 w-full flex flex-col gap-2">
+      <section className="p-8 w-full flex flex-col gap-2 px-8 md:px-12">
         <h4 className="text-start text-3xl font-bold text-green">Notes</h4>
         <p className="text-lg font-normal break-words leading-8">
           Our working hours are from 09:00 am PST - 09:00 pm (Mon - Sat) | 10:00
@@ -21,7 +21,7 @@ const SickCertificatePage = () => {
           within 30 minutes during working hours.
         </p>
       </section>
-      <section className="p-8 w-full flex flex-col gap-2">
+      <section className="p-8 w-full flex flex-col gap-2 px-8 md:px-12">
         <h4 className="text-start text-3xl font-bold text-green">
           Terms and Conditions
         </h4>
