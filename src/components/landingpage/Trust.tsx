@@ -4,7 +4,7 @@ import convenient from "../../assets/icons/international.png";
 
 const TrustUs = () => {
   return (
-    <section className="bg-offwhite w-full h-max flex flex-col justify-start items-center gap-20 pb-20">
+    <section className="bg-offwhite w-full h-max flex flex-col justify-start items-center gap-20 pb-20 px-8 md:px-12">
       <h3 className="text-2xl sm:text-4xl md:text-6xl font-bold text-green text-center">
         Why Trust Us?
       </h3>
