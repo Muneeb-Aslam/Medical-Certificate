@@ -27,7 +27,7 @@ const SignUpForm: React.FC = () => {
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
-      className="w-full flex flex-col justify-center items-center gap-6 font-poppins pb-20"
+      className="w-full flex flex-col justify-center items-center gap-6 font-poppins pb-20 px-4 md:px-12"
     >
       <h3 className="text-green font-bold text-4xl">Sign Up Form</h3>
       <FormDiv>

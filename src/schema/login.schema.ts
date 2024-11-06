@@ -10,3 +10,7 @@ export const signUpSchema = z.object({
   email: z.string().min(1, "Email is required"),
   password: z.string().min(1, "Password is required"),
 });
+
+export const verifySchema = z.object({
+  certificateID: z.string().min(1, "Certificate Number is required"),
+});

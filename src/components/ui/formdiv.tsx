@@ -6,7 +6,7 @@ interface FormDivProps {
 
 const FormDiv: React.FC<FormDivProps> = ({ children }) => {
   return (
-    <div className="pl-8 flex flex-col gap-2 justify-start items-start">
+    <div className="pl-6 md:pl-8 flex flex-col gap-2 justify-start items-start">
       {children}
     </div>
   );

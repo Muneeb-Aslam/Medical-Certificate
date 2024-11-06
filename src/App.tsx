@@ -5,6 +5,7 @@ import FitnessCertificateLandingPage from "./pages/fitnesspage";
 import Home from "./pages/home";
 import Login from "./pages/login";
 import SignUp from "./pages/signup";
+import Verify from "./pages/verifypage";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         path="/fitness-certificate"
         element={<FitnessCertificateLandingPage />}
       />
+      <Route path="/verify-certificate" element={<Verify />} />
       <Route path="/certificate/form" element={<SickCertificatePage />} />
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<SignUp />} />

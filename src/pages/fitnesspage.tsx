@@ -56,8 +56,6 @@ const FitnessCertificateLandingPage = () => {
         <Button>GET FITNESS CERTIFICATE</Button>
       </section>
 
-      <hr className="bg-gray-200 h-1 w-[90%]" />
-
       <Steps btnText={HeroButtonText} />
 
       <Footer />

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -15,10 +16,12 @@ const termsAndConditions =
 type FormData = z.infer<typeof SickLeaveFormSchema>;
 
 const SickCertificateForm = () => {
+  const today = new Date().toISOString().split("T")[0];
   const {
     register,
     handleSubmit,
     formState: { errors },
+    watch,
   } = useForm<FormData>({
     resolver: zodResolver(SickLeaveFormSchema),
   });
@@ -26,6 +29,8 @@ const SickCertificateForm = () => {
   const onSubmit = (data: FormData) => {
     console.log(data);
   };
+
+  const formTypeValue = watch("formType");
 
   return (
     <form
@@ -37,18 +42,17 @@ const SickCertificateForm = () => {
           {termsAndConditions}
         </FormLabel>
         <div className="flex justify-start items-center gap-2 flex-wrap">
-          <input type="checkbox" className="w-[20px] h-[20px]" />
+          <input
+            type="checkbox"
+            className="w-[20px] h-[20px]"
+            {...register("termsAndConditions", { required: true })}
+          />
           <FormLabel aria-required={true}>
             I accept all the terms and conditions, refund & cancellation policy,
             and the format of the certificate.
           </FormLabel>
         </div>
-        {/* <CheckBox
-            {...register("termsAndConditions")}
-            setTermsCheckedBox={setChecked}
-            termsCheckedBox={che}
-          /> */}
-        <FormError error={errors.phoneNumber} />
+        <FormError error={errors.termsAndConditions} />
       </FormDiv>
 
       <div className="w-full flex justify-start items-center gap-12 flex-wrap">
@@ -147,12 +151,22 @@ const SickCertificateForm = () => {
       <FormDiv>
         <FormLabel aria-required={true}>I am seeking</FormLabel>
         <div className="flex justify-start items-center gap-2">
-          <input type="radio" value={"Male"} />
-          <label htmlFor="male">Sick Leave Certificate</label>
+          <input
+            type="radio"
+            value={"Sick Leave Certificate"}
+            id="sickLeaveCertificate"
+            {...register("formType")}
+          />
+          <label htmlFor="sickLeaveCertificate">Sick Leave Certificate</label>
         </div>
         <div className="flex justify-start items-center gap-2">
-          <input type="radio" value={"Female"} />
-          <label htmlFor="Female">Fitness Certificate</label>
+          <input
+            type="radio"
+            value={"Fitness Certificate"}
+            id="fitnessCertificate"
+            {...register("formType")}
+          />
+          <label htmlFor="fitnessCertificate">Fitness Certificate</label>
         </div>
       </FormDiv>
 
@@ -163,7 +177,73 @@ const SickCertificateForm = () => {
         <h3 className="text-green text-xs">
           Future date certificates cannot be issued.
         </h3>
-        <Input type="date" {...register("date")} />
+        {formTypeValue === "Sick Leave Certificate" ? (
+          <Input type="date" {...register("date")} max={today} />
+        ) : (
+          <Input
+            type="date"
+            {...register("date")}
+            max={today}
+            value={today}
+            disabled
+          />
+        )}
+      </FormDiv>
+
+      {formTypeValue === "Sick Leave Certificate" && (
+        <>
+          <FormDiv>
+            <FormLabel aria-required={true}>
+              How many days leave/WFH/medical note do you want
+            </FormLabel>
+            <Input
+              type="text"
+              {...register("numOfDays")}
+              placeholder="Number of Days"
+            />
+            <FormError error={(errors as any).numOfDays} />
+          </FormDiv>
+
+          <FormDiv>
+            <FormLabel aria-required={true}>
+              Details of medical problem
+            </FormLabel>
+            <Input
+              type="text"
+              {...register("additionalDetails")}
+              placeholder="Additional Information"
+            />
+            <FormError error={(errors as any).additionalDetails} />
+          </FormDiv>
+        </>
+      )}
+
+      {formTypeValue === "Fitness Certificate" && (
+        <FormDiv>
+          <FormLabel className="text-green text-lg font-normal break-words leading-8 flex flex-col gap-4 shadow-2xl rounded-2xl p-4">
+            <span>Details of height & weight</span>
+            <span>Photo proof of blood pressure & pulse 15 secs</span>
+            <span>full body video of you walking</span>
+          </FormLabel>
+          <div className="flex justify-start items-center gap-2 flex-wrap">
+            <input
+              type="checkbox"
+              className="w-[20px] h-[20px]"
+              {...register("shareInformation", { required: true })}
+            />
+            <FormLabel aria-required={true}>
+              I will share the above details with the support team on either
+              Whatsapp or Email.
+            </FormLabel>
+          </div>
+          <FormError error={(errors as any).shareInformation} />
+        </FormDiv>
+      )}
+
+      <FormDiv>
+        <FormLabel aria-required={true}>Please Upload Govt ID Card</FormLabel>
+        <Input type="file" {...register("GovtIDCard")} />
+        <FormError error={errors.GovtIDCard} />
       </FormDiv>
 
       <FormDiv>

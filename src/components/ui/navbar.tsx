@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import closeIcon from "../../assets/icons/close.png";
 import menuIcon from "../../assets/icons/menu.png";
 import Button from "./button";
+import logo from "../../assets/icons/logo.png";
 
 const Navbar = () => {
   const [nav, setNav] = useState(false);
@@ -17,10 +18,12 @@ const Navbar = () => {
     <div className="w-full bg-primary flex justify-between items-center h-20 px-12 gap-12 font-poppins">
       {/* Logo */}
       <div className="flex justify-start items-center gap-12">
-        <h1 className="text-xl font-semibold text-black">
-          Medical Certificate
-        </h1>
-
+        <img
+          src={logo}
+          alt="logo"
+          onClick={() => navigate("/")}
+          className="w-[60px] h-[60px] cursor-pointer"
+        />
         {/* Desktop Navigation */}
         <ul className="hidden lg:flex justify-start items-center gap-8">
           {navItems.map((item) => (
@@ -69,6 +72,12 @@ const Navbar = () => {
             {item.name}
           </li>
         ))}
+        <Button
+          onClick={() => navigate("/login")}
+          className="w-[50%] sm:w-[40%]"
+        >
+          Login
+        </Button>
       </ul>
     </div>
   );
